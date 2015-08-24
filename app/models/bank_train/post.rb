@@ -6,6 +6,7 @@ module BankTrain
     field :name
 
     has_and_belongs_to_many :user
+    has_and_belongs_to_many :business_categories, class_name: 'BankTrain::BusinessCategory'
 
     module UserMethods
       extend ActiveSupport::Concern
