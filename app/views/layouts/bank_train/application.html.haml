@@ -4,10 +4,24 @@
     %meta{:'http-equiv' => 'Content-Type', :content => 'text/html; charset=utf-8'}
     %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'}
 
-    %title rails engine: bank_train
+    %title 柜员培训 DEMO
     = csrf_meta_tags
     = stylesheet_link_tag 'bank_train/application', :media => 'screen'
     = javascript_include_tag 'bank_train/application'
 
   %body
-    = yield
+    %nav.navbar.navbar-default.navbar-static-top
+      .container
+        .navbar-header
+          %a.navbar-brand{href: root_path} 柜员培训
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            = nav_link posts_path, '设置岗位'
+            = nav_link levels_path, '设置级别'
+            = nav_link business_categories_path, '设置业务种类'
+            = nav_link business_operations_path, '维护业务操作'
+
+    .page-main
+      .container
+        = yield
+    .page-footer

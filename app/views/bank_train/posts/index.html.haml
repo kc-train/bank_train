@@ -1,0 +1,33 @@
+.page-posts-index
+  %h3 设置岗位
+
+  %table.table.table-striped.table-bordered
+    %caption 岗位清单
+    %thead
+      %tr
+        %th 岗位编号
+        %th 岗位名
+        %th 操作
+    %tbody
+      - if @posts.blank?
+        %tr
+          %td{colspan: 3} 没有数据
+
+  .table-opers
+    %a.btn.btn-default{href: new_post_path} 增加岗位
+
+
+  %a.btn.btn-primary{data: {toggle: :modal, target: '#my-modal'}} lunch demo modal
+
+  #my-modal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-dialog{:role => "document"}
+      .modal-content
+        .modal-header
+          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+            %span{"aria-hidden" => "true"} &times;
+          %h4#myModalLabel.modal-title Modal title
+        .modal-body
+          \...
+        .modal-footer
+          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
+          %button.btn.btn-primary{:type => "button"} Save changes
