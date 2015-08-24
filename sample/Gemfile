@@ -46,3 +46,4 @@ gem 'play_auth', :github => 'mindpin/play_auth',
 gem 'bank_train', path: '../'
 
 gem 'bootstrap-sass', '~> 3.3.5'
+gem 'simple_form'

@@ -3,6 +3,7 @@ module BankTrain
     include Mongoid::Document
     include Mongoid::Timestamps
 
+    field :number
     field :name
 
     has_and_belongs_to_many :user

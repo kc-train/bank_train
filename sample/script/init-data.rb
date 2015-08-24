@@ -1,0 +1,13 @@
+BankTrain::Post.destroy_all
+BankTrain::Post.create number: '01', name: '普通'
+BankTrain::Post.create number: '03', name: '普通'
+BankTrain::Post.create number: '05', name: '普通'
+BankTrain::Post.create number: '07', name: '普通'
+BankTrain::Post.create number: '09', name: '普通'
+BankTrain::Post.create number: '11', name: '普通'
+BankTrain::Post.create number: '13', name: '普通'
+BankTrain::Post.create number: '15', name: '普通'
+BankTrain::Post.create number: '17', name: '普通'
+BankTrain::Post.create number: '19', name: '普通'
+BankTrain::Post.create number: '21', name: '普通'
+BankTrain::Post.create number: '23', name: '普通'

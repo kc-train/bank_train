@@ -12,22 +12,26 @@
       - if @posts.blank?
         %tr
           %td{colspan: 3} 没有数据
+      - @posts.each do |post|
+        %tr
+          %td= post.number
+          %td= post.name
+          %td
 
-  .table-opers
-    %a.btn.btn-default{href: new_post_path} 增加岗位
+  .table-opers.hide
+    %a.btn.btn-default{data: {toggle: :modal, target: '.new-dialog'}} 增加岗位
 
-
-  %a.btn.btn-primary{data: {toggle: :modal, target: '#my-modal'}} lunch demo modal
-
-  #my-modal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-    .modal-dialog{:role => "document"}
+  .new-dialog.modal.fade
+    .modal-dialog
       .modal-content
         .modal-header
-          %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
-            %span{"aria-hidden" => "true"} &times;
-          %h4#myModalLabel.modal-title Modal title
+          %a.close{data: {dismiss: :modal}}
+            %span &times;
+          %h4 增加岗位
         .modal-body
-          \...
+          = simple_form_for BankTrain::Post.new do |f|
+            = f.input :number
+            = f.input :name
         .modal-footer
-          %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Close
-          %button.btn.btn-primary{:type => "button"} Save changes
+          %a.btn.btn-default{data: {dismiss: :modal}} 关闭
+          %a.btn.btn-success 确定
