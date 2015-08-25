@@ -4,3 +4,48 @@
 body {
   font-family: "Segoe UI", "Helvetica Neue", "Helvetica", "Arial", "sans-serif", "微软雅黑";
 }
+
+.page-main {
+  margin-top: 51px;
+  padding-bottom: 50px;
+}
+
+.page-posts-index {
+  td.number {
+    font-weight: bold;
+    color: #fba42e;
+  }
+  td {
+    .desc {
+      color: #999;
+      font-size: 13px;
+    }
+  }
+}
+
+.page-levels-index {
+  td.number {
+    font-weight: bold;
+    color: #fba42e;
+  }
+}
+
+.business-categories-tree {
+  .category .name {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: solid 1px #DDDDDD;
+
+    span.posts {
+      color: #bf7004;
+    }
+  }
+}
+
+.business-operations-tree {
+  .operation .name {
+    height: 40px;
+    line-height: 40px;
+    border-bottom: solid 1px #DDDDDD;
+  }
+}

@@ -5,9 +5,13 @@ module BankTrain
 
     field :number
     field :name
+    field :desc
+
+    default_scope ->{order(:id.asc)}
 
     has_and_belongs_to_many :user
     has_and_belongs_to_many :business_categories, class_name: 'BankTrain::BusinessCategory'
+    has_and_belongs_to_many :levels, class_name: 'BankTrain::Level'
 
     module UserMethods
       extend ActiveSupport::Concern

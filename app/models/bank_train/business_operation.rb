@@ -3,9 +3,13 @@ module BankTrain
     include Mongoid::Document
     include Mongoid::Timestamps
 
+    field :number
     field :name
+    field :chapter_number
 
     has_and_belongs_to_many :business_categories, class_name: 'BankTrain::BusinessCategory'
+    belongs_to :parent_operation, class_name: 'BankTrain::BusinessOperation'
+    has_many :children_operations, class_name: 'BankTrain::BusinessOperation'
 
     module UserMethods
       extend ActiveSupport::Concern

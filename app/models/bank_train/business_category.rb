@@ -8,6 +8,9 @@ module BankTrain
     has_and_belongs_to_many :posts, class_name: 'BankTrain::Post'
     has_and_belongs_to_many :business_operations, class_name: 'BankTrain::BusinessOperation' 
 
+    belongs_to :parent_category, class_name: 'BankTrain::BusinessCategory' 
+    has_many :children_categories, class_name: 'BankTrain::BusinessCategory'
+
     module UserMethods
       extend ActiveSupport::Concern
 

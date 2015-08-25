@@ -1,0 +1,26 @@
+.page-levels-index
+  %h3 设置级别
+
+  %table.table.table-striped.table-bordered
+    %caption 级别清单
+    %thead
+      %tr
+        %th 级别编号
+        %th 级别名
+        %th 操作
+    %tbody
+      - if @levels.blank?
+        %tr
+          %td{colspan: 3} 没有数据
+      - @levels.each do |level|
+        %tr
+          %td.number= level.number
+          %td= level.name
+          %td
+            .btn-group.btn-group-sm
+              %a.btn.btn-default{href: 'javascript:;'}
+                %i.glyphicon.glyphicon-pencil
+                %span 修改
+              %a.btn.btn-default{href: 'javascript:;'} 
+                %i.glyphicon.glyphicon-trash
+                %span 删除

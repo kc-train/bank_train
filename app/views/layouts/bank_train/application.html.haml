@@ -10,7 +10,7 @@
     = javascript_include_tag 'bank_train/application'
 
   %body
-    %nav.navbar.navbar-default.navbar-static-top
+    %nav.navbar.navbar-default.navbar-fixed-top
       .container
         .navbar-header
           %a.navbar-brand{href: root_path} 柜员培训
@@ -18,8 +18,8 @@
           %ul.nav.navbar-nav
             = nav_link posts_path, '设置岗位'
             = nav_link levels_path, '设置级别'
-            = nav_link business_categories_path, '设置业务种类'
-            = nav_link business_operations_path, '维护业务操作'
+            = nav_link business_categories_path, '设置业务种类(对应到知识点)'
+            = nav_link business_operations_path, '设置业务操作'
 
     .page-main
       .container

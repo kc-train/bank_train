@@ -6,7 +6,9 @@
     %thead
       %tr
         %th 岗位编号
-        %th 岗位名
+        %th 岗位名与描述
+        %th 对应级别
+        %th 对应业务类别
         %th 操作
     %tbody
       - if @posts.blank?
@@ -14,9 +16,24 @@
           %td{colspan: 3} 没有数据
       - @posts.each do |post|
         %tr
-          %td= post.number
-          %td= post.name
+          %td.number= post.number
           %td
+            .name= post.name
+            .desc= post.desc
+          %td
+            - post.levels.each do |level|
+              .level= level.name
+          %td
+            %span= post.business_categories.count
+            %span 类
+          %td
+            .btn-group.btn-group-sm
+              %a.btn.btn-default{href: 'javascript:;'}
+                %i.glyphicon.glyphicon-pencil
+                %span 修改
+              %a.btn.btn-default{href: 'javascript:;'} 
+                %i.glyphicon.glyphicon-trash
+                %span 删除
 
   .table-opers.hide
     %a.btn.btn-default{data: {toggle: :modal, target: '.new-dialog'}} 增加岗位
