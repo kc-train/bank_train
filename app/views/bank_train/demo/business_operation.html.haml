@@ -1,0 +1,75 @@
+.demo-page
+  .demo-header
+    %a.quit{:href => 'javascript:;'}
+      /%span.glyphicon.glyphicon-arrow-left
+      %span 退出
+    .page-flow
+      .page.active{data: {num: 1, next: [2]}}
+        .icon.glyphicon.glyphicon-comment
+      .page{data: {num: 2, prev: [1], next: [3]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 3, prev: [2], next: [4]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 4, prev: [3], next: [5]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 5, prev: [4], next: [6]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 6, prev: [5], next: [7]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 7, prev: [6], next: [8]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 8, prev: [7], next: [9]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 9, prev: [8], next: [10]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 10, prev: [9], next: [11]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 11, prev: [10], next: [12]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 12, prev: [11], next: [13]}}
+        .icon.glyphicon.glyphicon-credit-card
+      .page{data: {num: 13, prev: [12]}}
+        .icon.glyphicon.glyphicon-credit-card
+
+  .demo-main
+    .prev-link
+      .link.one
+        %span.icon.glyphicon.glyphicon-chevron-left
+    .next-link
+      .link.one
+        %span.icon.glyphicon.glyphicon-chevron-right
+    .demo-pager
+      .page.active{data: {num: 1}}
+        %h2 业务：活期存款开户
+        %h2 交易代码：121100
+        %hr
+        %h2 功能描述：
+        %h2 　　本交易用于个人活期储蓄账户、个人存折结算账户、个人支票结算账户和单位活期存款账户、同业活期存款账户、活期保证金存款账户、系统内存款帐户、单位财政存款类账户的开立，并生成账号或印鉴卡号。
+
+      .page{data: {num: 2}}
+        %h2 输入屏幕 No.1
+        .dscreen.input1{data: 'input1'}
+      .page{data: {num: 3}}
+        %h2 输入屏幕 No.2
+        .dscreen.input2{data: 'input2'}
+      .page{data: {num: 4}}
+        %h2 输入屏幕 No.3
+        .dscreen{data: 'input3'}
+      .page{data: {num: 5}}
+        %h2 page 5
+      .page{data: {num: 6}}
+        %h2 page 6
+      .page{data: {num: 7}}
+        %h2 page 7
+      .page{data: {num: 8}}
+        %h2 page 8
+      .page{data: {num: 9}}
+        %h2 page 9
+      .page{data: {num: 10}}
+        %h2 page 10
+      .page{data: {num: 11}}
+        %h2 page 11
+      .page{data: {num: 12}}
+        %h2 page 12
+      .page{data: {num: 13}}
+        %h2 page 13

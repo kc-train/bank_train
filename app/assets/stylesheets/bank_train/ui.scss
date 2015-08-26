@@ -49,3 +49,258 @@ body {
     border-bottom: solid 1px #DDDDDD;
   }
 }
+
+@mixin shadow {
+  box-shadow: 0px 1px 2px rgba(0,0,0,0.1);
+}
+
+body.demo {
+  background-color: #f1f1f1;
+  // background: url(http://i.teamkn.com/i/yeveathn.png);
+
+  $header-h: 100px;
+
+  .demo-header {
+    position: absolute;
+    top:5px;left:0;right:0;height:$header-h;
+    background-color: #f7f7f7;
+    @include shadow;
+    a.quit {
+      position: absolute;
+      width:100px;height:50px;
+      // border-radius:0 100px 100px 0;
+      background-color: #999;
+      line-height: 50px;
+      text-align: center;
+      top:25px;left:0;
+      font-size: 25px;
+      color: #f1f1f1;
+      &:hover {
+        text-decoration: none;
+        background-color: #ccc;
+      }
+    }
+    .page-flow {
+      position: absolute;
+      top:0;
+      left:100px;
+      bottom:0;
+      right:0;
+      padding-left: 30px;
+      .page {
+        width:40px;height:40px;
+        border:solid 3px #4183C4;
+        border-radius:100px;
+        float: left;
+        margin-top:30px;
+        margin-right: 15px;
+        background-color: #FFF;
+        position: relative;
+        cursor: pointer;
+        .icon {
+          position: absolute;
+          width:34px;height:34px;
+          line-height:34px;
+          text-align: center;
+          color: #4183C4;
+        }
+        &:hover, &.active{
+          background-color: #65B2EF;
+          border-color: #65B2EF;
+          .icon {color: white};
+        }
+      }
+    }
+  }
+
+  .demo-main {
+    position: absolute;
+    left:0;right:0;bottom:5px;top:$header-h + 10px;
+
+    .prev-link {
+      position: absolute;
+      top:0;bottom:0;
+      left:0;width:100px;
+      background-color: #f7f7f7;
+      @include shadow;
+    }
+    .next-link {
+      position: absolute;
+      top:0;bottom:0;
+      right:0;width:100px;
+      background-color: #f7f7f7;
+      @include shadow;
+    }
+
+    .prev-link, .next-link {
+      .link {
+        position:relative;
+        cursor: pointer;
+        left:0;right:0;
+        &.one {
+          height:100%;
+        }
+        &.two {
+          height:50%;
+        }
+
+        &:hover {
+          background-color: #ccc;
+          .icon {
+            &:before {
+              position: relative;
+              // top: -5px;
+            }
+          }
+        }
+        .icon {
+          font-size: 60px;
+          text-align: center;
+          color: #999;
+          position: absolute;
+          top:0;left:0;right:0;bottom:0;
+          margin:auto;
+          width:100px;height:100px;
+          line-height: 100px;
+        }
+      }
+    }
+
+    .demo-pager {
+      position: absolute;
+      top:0;bottom:0;
+      left:105px;right:105px;
+      background-color: #FFF;
+      @include shadow;
+      overflow: hidden;
+      .page {
+        display: none;
+        position: absolute;
+        top:0;left:0;right:0;bottom:0;
+        background-color: #FFF;
+        padding: 20px 40px;
+        &.active {
+          display: block;
+        }
+
+        h2 {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+
+// ----------
+
+.demo-screen {
+  border:solid 1px #ddd;
+  font-size: 12px;
+  line-height: 20px;
+  padding: 5px;
+  width:640px + 10px + 2px;
+  margin-bottom: 10px;
+  $c: #3796EA;
+
+  .demo-screen-header {
+    background-color: $c;
+    color: white;
+    position: relative;
+    height: 50px;
+    margin-bottom: 5px;
+    font-family: '宋体';
+    .jgno {
+      position: absolute;
+      top:5px;left:10px;
+    }
+    .gyno {
+      position: absolute;
+      bottom:5px;left:10px;
+    }
+    .date {
+      position: absolute;
+      top:5px;right:10px;
+      width:110px;
+    }
+    .time {
+      position: absolute;
+      bottom:5px;right:10px;
+      width:110px;
+    }
+    .title {
+      position: absolute;
+      top: 5px; left:0; right:0;
+      text-align: center;
+    }
+    .ywname {
+      position: absolute;
+      bottom: 5px; left:0; right:0;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+  .demo-screen-footer {
+    background-color: $c;
+    color: white;
+    overflow: hidden;
+    padding: 5px 10px;
+    line-height:20px;
+    .t {
+      float: left;
+    }
+    .key {
+      // background-color: #f1f1f1;
+      background-color: rgba(white, 0.8);
+      // color: #666;
+      color: darken($c, 30%);
+      border-radius: 3px;
+      padding: 0 4px;
+      font-size: 12px;
+      height:20px;line-height:20px;
+      min-width: 20px;
+      text-align: center;
+      margin-right: 5px;
+      font-family: '宋体';
+    }
+    .tip {
+      margin-right: 5px;
+    }
+  }    
+  .demo-screen-main {
+    background-color: #F2F2F2;
+    color: #6D4B26;
+    min-height: 320px;
+    margin-bottom: 5px;
+    padding: 0;
+
+    .line {
+      height: 22px;
+      line-height: 22px;
+      overflow: hidden;
+
+      .field {
+        float: left;
+        overflow: hidden;
+        padding:0 10px;
+        label {
+          float: left;
+          height:22px;
+          line-height:22px;
+          margin-right: 12px;
+        }
+        input, select {
+          box-sizing: border-box;
+          border: solid 1px #ccc;
+          padding: 0 5px;
+          $h: 18px;
+          height: $h;
+          line-height: $h - 2px;
+          margin-top: 2px;
+          float: left;
+          box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        }
+      }
+    }
+  }
+}
