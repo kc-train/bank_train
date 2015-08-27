@@ -138,6 +138,7 @@ class MainScreenLine
     $line.find('.field').each ->
       jQuery(this)
         .css 'width', "#{100/match.length}%"
+        # .css 'width', '50%'
 
 class MainScreenField
   constructor: (@raw_field)->

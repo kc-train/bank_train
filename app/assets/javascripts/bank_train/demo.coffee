@@ -53,11 +53,14 @@ jQuery(document).on 'page:change', ->
 
 jQuery(document).on 'page:change', ->
   jQuery.getJSON '/demo/screens.json', (data)->
-    input1 = new OperationScreen 'input1', data['input1']
-    input1.get_html()
+    # input1 = new OperationScreen 'input1', data['input1']
+    # input1.get_html()
 
-    input2 = new OperationScreen 'input2', data['input2']
-    input2.get_html()
+    # input2 = new OperationScreen 'input2', data['input2']
+    # input2.get_html()
 
-    # screen2 = new OperationScreen 'screen2', data['screen2']
-    # screen2.get_html()
+    for key, value of data
+      try
+        input = new OperationScreen key, value
+        input.get_html()
+      catch e

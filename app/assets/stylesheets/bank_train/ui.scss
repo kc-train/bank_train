@@ -87,20 +87,22 @@ body.demo {
       bottom:0;
       right:0;
       padding-left: 30px;
+      background: url(http://i.teamkn.com/i/GuZuxVxq.png) no-repeat;
+
       .page {
-        width:40px;height:40px;
+        width:40px;height:30px;
         border:solid 3px #4183C4;
-        border-radius:100px;
-        float: left;
-        margin-top:30px;
-        margin-right: 15px;
+        // border-radius:100px;
+        border-radius: 4px;
         background-color: #FFF;
-        position: relative;
+        position: absolute;
         cursor: pointer;
         .icon {
           position: absolute;
-          width:34px;height:34px;
-          line-height:34px;
+          // width:34px;height:34px;
+          // line-height:34px;
+          width:34px;height:24px;
+          line-height:24px;
           text-align: center;
           color: #4183C4;
         }
@@ -109,6 +111,20 @@ body.demo {
           border-color: #65B2EF;
           .icon {color: white};
         }
+
+        &.p1 {left:30px;top:35px;}
+        &.p2 {left:30px + 60px;top:35px;}
+        &.p3 {left:30px + 60px * 2;top:13px;}
+        &.p4 {left:30px + 60px * 2;top:57px;}
+        &.p5 {left:30px + 60px * 3;top:35px;}
+        &.p6 {left:30px + 60px * 4;top:35px;}
+        &.p7 {left:30px + 60px * 5;top:13px;}
+        &.p8 {left:30px + 60px * 5;top:57px;}
+        &.p9 {left:30px + 60px * 6;top:13px;}
+        &.p10 {left:30px + 60px * 6;top:57px;}
+        &.p11 {left:30px + 60px * 7;top:35px;}
+        &.p12 {left:30px + 60px * 8;top:35px;}
+        &.p13 {left:30px + 60px * 9;top:35px;}
       }
     }
   }
