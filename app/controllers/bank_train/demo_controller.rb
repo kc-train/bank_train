@@ -7,5 +7,8 @@ module BankTrain
 
     def screens
     end
+
+    def screens_input
+    end
   end
 end

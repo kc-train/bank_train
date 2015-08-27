@@ -8,4 +8,5 @@ BankTrain::Engine.routes.draw do
 
   get '/demo/business_operation', to: 'demo#business_operation'
   get '/demo/screens', to: 'demo#screens'
+  get '/demo/screens_input', to: 'demo#screens_input'
 end

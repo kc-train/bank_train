@@ -46,7 +46,7 @@ class window.OperationScreen
         <div class='jgno'>机构码：</div>
         <div class='gyno'>柜员号：</div>
         <div class='title'>新疆农村信用社核心业务系统</div>
-        <div class='ywname'>活期存款存入</div>
+        <div class='ywname'>活期存款开户</div>
         <div class='date'>
           <span>日期：</span>
           <span>2005-08-08</span>
@@ -137,8 +137,8 @@ class MainScreenLine
 
     $line.find('.field').each ->
       jQuery(this)
-        .css 'width', "#{100/match.length}%"
-        # .css 'width', '50%'
+        # .css 'width', "#{100/match.length}%"
+        .css 'width', '50%'
 
 class MainScreenField
   constructor: (@raw_field)->

@@ -28,8 +28,10 @@
         .icon.glyphicon.glyphicon-credit-card
       .page.p12{data: {num: 12, prev: [11], next: [13]}}
         .icon.glyphicon.glyphicon-credit-card
-      .page.p13{data: {num: 13, prev: [12]}}
+      .page.p13{data: {num: 13, prev: [12], next: [14]}}
         .icon.glyphicon.glyphicon-credit-card
+      .page.p14{data: {num: 14, prev: [13]}}
+        .icon.glyphicon.glyphicon-comment
 
   .demo-main
     .prev-link
@@ -49,18 +51,55 @@
       .page{data: {num: 2}}
         %h2 输入屏幕 No.1
         .dscreen.input1
+        .dscreen-desc
+          .d 开立账户可联动建立客户信息，输入未开立的客户号或证件类型及证件号码；
+          .d 联动建立客户信息，进入下一屏：
+        .show-demo{data: {screen: 'input1'}}
+          .btn.btn-success.btn-sm.play
+            %span.glyphicon.glyphicon-play
+            %span 观看演示
+          .btn.btn-default.btn-sm.stop.hide
+            %span.glyphicon.glyphicon-stop
+            %span 停止演示
+
       .page{data: {num: 3}}
         %h2 输入屏幕 No.2
         .dscreen.input2
+        .dscreen-desc
+          .d 个人开户时，使用该屏幕录入信息
+        .show-demo{data: {screen: 'input2'}}
+          .btn.btn-success.btn-sm.play
+            %span.glyphicon.glyphicon-play
+            %span 观看演示
+          .btn.btn-default.btn-sm.stop.hide
+            %span.glyphicon.glyphicon-stop
+            %span 停止演示
+
       .page{data: {num: 4}}
         %h2 输入屏幕 No.3
         .dscreen.input3
+        .dscreen-desc
+          .d 单位开户时，使用该屏幕录入信息
+        .show-demo{data: {screen: 'input3'}}
+          .btn.btn-success.btn-sm.play
+            %span.glyphicon.glyphicon-play
+            %span 观看演示
+          .btn.btn-default.btn-sm.stop.hide
+            %span.glyphicon.glyphicon-stop
+            %span 停止演示
+
       .page{data: {num: 5}}
         %h2 响应屏幕 No.1
         .dscreen.response1
+        .dscreen-desc
+          .d 该屏幕显示开户后新产生的客户号
+
       .page{data: {num: 6}}
         %h2 响应屏幕 No.2
         .dscreen.response2
+        .dscreen-desc
+          .d 该屏幕显示系统中已存在的客户信息：客户号、客户名称、客户类别、证件类型、证件号码、证件失效日期
+
       .page{data: {num: 7}}
         %h2 输入屏幕 No.4
         .dscreen.input4
@@ -76,9 +115,30 @@
       .page{data: {num: 11}}
         %h2 响应屏幕 No.3
         .dscreen.response3
+        .dscreen-desc
+          .d 个人活期储蓄户或个人结算存折户时显示客户账号、主机流水号；个人支票结算户、单位活期账户、同业或系统内存款账户、活期保证金户、活期财政类存款账户显示客户账号、主机流水号、印鉴卡号；销账类账户转出时显示销账编号
+
       .page{data: {num: 12}}
         %h2 响应屏幕 No.4
         .dscreen.response4
+        .dscreen-desc
+          .d 需打印存款存折时显示：存折账号、存折号码
+
       .page{data: {num: 13}}
         %h2 响应屏幕 No.5
         .dscreen.response5
+        .dscreen-desc
+          .d 显示存折打印完成信息
+
+      .page{data: {num: 14}}
+        %h2 注意事项
+        %ul.metters
+          %li 1、个人存款账户柜台交易起存金额不得低于1元，单位活期存款为零金额开户。
+          %li 2、若“支取方式”为“凭密码”，“通存通兑”可选“非通存通兑、通存通兑,通存不通兑”；若“支取方式”为“无密”、“凭印鉴”或“凭证件”， “通存通兑”可选“非通存通兑、通存不通兑”；
+          %li 3、单位活期存款帐户同一客户号在信用社系统内只允许开立一个基本存款账户、一个待核准账户；一般存款账户不能在开立基本存款账户营业机构开户；系统默认保证金存款账户的账户性质为一般存款账户，且不可修改；金融类客户可以开立同业存款账户，且可选浮动方式；待核准账户不允许办理业务；
+          %li 4、验资账户开户的有效期不得超过半年，临时存款账户开户的有效期不得超过两年；
+          %li 5、开立单位保证金存款账户时，收息账号为必输项，收息账号应为同一客户号下的结算账户；
+          %li 6、活期存款开户交易不允许做当日取消；通过销户或新建客户信息后账户调整修正；
+          %li 7、若在开户时仅姓名错误，此时不能通过开户交易输入证件类型和证件号码实现重开，通过新建客户信息（117000）交易建立新的客户信息后，再通过客户账户调整(113201)交易处理；
+
+

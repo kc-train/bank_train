@@ -22,6 +22,11 @@ class BankTrainSlider
       next_page_id = $page.data('next')[0]
       @to_page next_page_id if next_page_id?
 
+    # 播放 demo
+    @$elm.on 'click', '.show-demo .btn.play', ->
+      screen = jQuery(this).closest('.show-demo').data('screen')
+      that.play_demo(screen)
+
 
   to_page: (page_id, direction = 'toright')->
     current_page_id = @$elm.find(".page-flow .page.active").data('num')
@@ -48,17 +53,60 @@ class BankTrainSlider
             'margin-left': '0'
           , 200
 
+  play_demo: (screen)->
+    jQuery('.field').removeClass('filled')
+    jQuery('.screen-tip').remove()
+
+    jQuery.getJSON '/demo/screens_input.json', (d)=>
+      data = d[screen]
+      @play_data(screen, data, 0)
+
+  play_data: (screen, d, idx)->
+    data = d[idx]
+    console.log data
+
+    field = parseInt data[0]
+    tip_text = data[1]
+    value = data[2]
+
+    $tip = jQuery('<div>').addClass('screen-tip')
+      .append tip_text
+    
+    $screen = jQuery(".dscreen.#{screen}")
+    $field = $screen.find('.field').eq(field)
+    
+    left = $field.position().left
+    top = $field.position().top
+    left = left + $field.width() + 20
+
+    $tip.appendTo jQuery('.demo-pager .page.active')
+      .css
+        'left': left
+        'top': top - 20 - 5
+        'opacity': 0
+      .animate
+        'top': top - 5
+        'opacity': 1
+      , 500, =>
+        setTimeout =>
+          if value?
+            $field.addClass('filled')
+            $field.find('input').val(value)
+            $field.find('option').text(value)        
+          
+          if idx < d.length - 1
+            $tip.hide()
+            @play_data(screen, d, idx + 1)
+          else
+            console.log '播放完毕'
+        , 1500
+
+
 jQuery(document).on 'page:change', ->
   new BankTrainSlider jQuery('.demo-page')
 
 jQuery(document).on 'page:change', ->
   jQuery.getJSON '/demo/screens.json', (data)->
-    # input1 = new OperationScreen 'input1', data['input1']
-    # input1.get_html()
-
-    # input2 = new OperationScreen 'input2', data['input2']
-    # input2.get_html()
-
     for key, value of data
       try
         input = new OperationScreen key, value
