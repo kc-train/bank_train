@@ -58,35 +58,48 @@
           .btn.btn-success.btn-sm.play
             %span.glyphicon.glyphicon-play
             %span 观看演示
-          .btn.btn-default.btn-sm.stop.hide
-            %span.glyphicon.glyphicon-stop
-            %span 停止演示
+          .btn.btn-default.btn-sm.pause
+            %span.glyphicon.glyphicon-pause
+            %span 暂停
+          .btn.btn-default.btn-sm{data: {toggle: :modal, target: '.question-dialog'}} 
+            %span.glyphicon.glyphicon-question-sign
+            %span 提问
 
       .page{data: {num: 3}}
         %h2 输入屏幕 No.2
         .dscreen.input2
         .dscreen-desc
+          .d 开立账户分为单位开户和个人开户
+          .d 需要输入的信息是有区别的
           .d 个人开户时，使用该屏幕录入信息
         .show-demo{data: {screen: 'input2'}}
           .btn.btn-success.btn-sm.play
             %span.glyphicon.glyphicon-play
             %span 观看演示
-          .btn.btn-default.btn-sm.stop.hide
-            %span.glyphicon.glyphicon-stop
-            %span 停止演示
+          .btn.btn-default.btn-sm.pause
+            %span.glyphicon.glyphicon-pause
+            %span 暂停演示
+          .btn.btn-default.btn-sm{data: {toggle: :modal, target: '.question-dialog'}} 
+            %span.glyphicon.glyphicon-question-sign
+            %span 提问
 
       .page{data: {num: 4}}
         %h2 输入屏幕 No.3
         .dscreen.input3
         .dscreen-desc
+          .d 开立账户分为单位开户和个人开户
+          .d 需要输入的信息是有区别的
           .d 单位开户时，使用该屏幕录入信息
         .show-demo{data: {screen: 'input3'}}
           .btn.btn-success.btn-sm.play
             %span.glyphicon.glyphicon-play
             %span 观看演示
-          .btn.btn-default.btn-sm.stop.hide
-            %span.glyphicon.glyphicon-stop
-            %span 停止演示
+          .btn.btn-default.btn-sm.pause
+            %span.glyphicon.glyphicon-pause
+            %span 暂停演示
+          .btn.btn-default.btn-sm{data: {toggle: :modal, target: '.question-dialog'}} 
+            %span.glyphicon.glyphicon-question-sign
+            %span 提问
 
       .page{data: {num: 5}}
         %h2 响应屏幕 No.1
@@ -113,9 +126,12 @@
           .btn.btn-success.btn-sm.play
             %span.glyphicon.glyphicon-play
             %span 观看演示
-          .btn.btn-default.btn-sm.stop.hide
-            %span.glyphicon.glyphicon-stop
-            %span 停止演示
+          .btn.btn-default.btn-sm.pause
+            %span.glyphicon.glyphicon-pause
+            %span 暂停演示
+          .btn.btn-default.btn-sm{data: {toggle: :modal, target: '.question-dialog'}} 
+            %span.glyphicon.glyphicon-question-sign
+            %span 提问
 
       .page{data: {num: 10}}
         %h2 输入屏幕 No.7
@@ -149,4 +165,17 @@
           %li 6、活期存款开户交易不允许做当日取消；通过销户或新建客户信息后账户调整修正；
           %li 7、若在开户时仅姓名错误，此时不能通过开户交易输入证件类型和证件号码实现重开，通过新建客户信息（117000）交易建立新的客户信息后，再通过客户账户调整(113201)交易处理；
 
+.question-dialog.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %a.close{data: {dismiss: :modal}}
+          %span &times;
+        %h4 操作提问
+      .modal-body
+        .desc
+        %textarea.form-control{placeholder: '请输入要提问的内容……', rows: 8}
+      .modal-footer
+        %a.btn.btn-success 确定
+        %a.btn.btn-default{data: {dismiss: :modal}} 关闭
 

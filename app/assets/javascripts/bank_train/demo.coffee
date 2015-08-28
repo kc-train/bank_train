@@ -27,6 +27,21 @@ class BankTrainSlider
       screen = jQuery(this).closest('.show-demo').data('screen')
       that.play_demo(screen)
 
+    # 暂停 demo
+    @$elm.on 'click', '.show-demo .btn.pause', ->
+      that.pause_demo()
+
+    jQuery(document).on 'show.bs.modal', (evt)->
+      that.pause_demo()
+      
+      $desc = jQuery('.question-dialog').find('.desc')
+      current_screen = jQuery('.demo-pager .page.active h2').html()
+      
+      if that.current_field_label?
+        $desc.html "正在对 <b>#{current_screen}</b> 中的输入框： <b>#{that.current_field_label}</b> 提问"
+      else
+        $desc.html "正在对 <b>#{current_screen}</b> 提问"
+
 
   to_page: (page_id, direction = 'toright')->
     current_page_id = @$elm.find(".page-flow .page.active").data('num')
@@ -53,13 +68,20 @@ class BankTrainSlider
             'margin-left': '0'
           , 200
 
+  pause_demo: ->
+    @play = false
+
   play_demo: (screen)->
-    jQuery('.field').removeClass('filled')
+    @play = true
+    @current_idx ||= 0
+    if @current_idx is 0
+      jQuery('.field').removeClass('filled')
     jQuery('.screen-tip').remove()
 
     jQuery.getJSON '/demo/screens_input.json', (d)=>
       data = d[screen]
-      @play_data(screen, data, 0)
+      console.log @current_idx
+      @play_data(screen, data, @current_idx)
 
   play_data: (screen, d, idx)->
     data = d[idx]
@@ -74,6 +96,7 @@ class BankTrainSlider
     
     $screen = jQuery(".dscreen.#{screen}")
     $field = $screen.find('.field').eq(field)
+    @current_field_label = $field.find('label').html()
     
     left = $field.position().left
     top = $field.position().top
@@ -95,9 +118,12 @@ class BankTrainSlider
             $field.find('option').text(value)        
           
           if idx < d.length - 1
-            $tip.hide()
-            @play_data(screen, d, idx + 1)
+            @current_idx = @current_idx + 1
+            if @play
+              $tip.hide()
+              @play_data(screen, d, @current_idx)
           else
+            @current_idx = null
             console.log '播放完毕'
         , 1500
 
