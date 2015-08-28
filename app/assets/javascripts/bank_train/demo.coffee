@@ -52,6 +52,9 @@ class BankTrainSlider
 
 
   to_page: (page_id, direction = 'toright')->
+    @play = false
+    @current_idx = null
+
     current_page_id = @$elm.find(".page-flow .page.active").data('num')
     return if page_id is current_page_id
 
@@ -80,6 +83,7 @@ class BankTrainSlider
     @play = false
 
   play_demo: (screen)->
+    return if @play is true
     @play = true
     @current_idx ||= 0
     if @current_idx is 0
@@ -138,6 +142,7 @@ class BankTrainSlider
           else
             @current_idx = null
             console.log '播放完毕'
+            @play = false
         # , 1500
 
   show_tip_text: ($tip, func)->
