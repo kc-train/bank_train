@@ -91,8 +91,11 @@ class BankTrainSlider
     tip_text = data[1]
     value = data[2]
 
+    tip_text = tip_text.split('').map (x)->
+      "<span>#{x}</span>"
     $tip = jQuery('<div>').addClass('screen-tip')
       .append tip_text
+    $tip.find('span').css 'visibility', 'hidden'
     
     $screen = jQuery(".dscreen.#{screen}")
     $field = $screen.find('.field').eq(field)
@@ -111,7 +114,9 @@ class BankTrainSlider
         'top': top - 5
         'opacity': 1
       , 500, =>
-        setTimeout =>
+        # setTimeout =>
+        @show_tip_text $tip, =>
+          console.log 111111
           if value?
             $field.addClass('filled')
             $field.find('input').val(value)
@@ -125,7 +130,22 @@ class BankTrainSlider
           else
             @current_idx = null
             console.log '播放完毕'
-        , 1500
+        # , 1500
+
+  show_tip_text: ($tip, func)->
+    length = $tip.find('span').length
+    @_st $tip, length, 0, func
+
+  _st: ($tip, length, idx, func)->
+    $tip.find('span').eq(idx).css 'visibility', 'visible'
+    if idx is length - 1
+      setTimeout =>
+        func()
+      , 1500
+    else
+      setTimeout =>
+        @_st $tip, length, idx + 1, func
+      , 150
 
 
 jQuery(document).on 'page:change', ->
