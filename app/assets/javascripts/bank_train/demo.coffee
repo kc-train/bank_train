@@ -31,16 +31,24 @@ class BankTrainSlider
     @$elm.on 'click', '.show-demo .btn.pause', ->
       that.pause_demo()
 
-    jQuery(document).on 'show.bs.modal', (evt)->
-      that.pause_demo()
-      
-      $desc = jQuery('.question-dialog').find('.desc')
-      current_screen = jQuery('.demo-pager .page.active h2').html()
-      
-      if that.current_field_label?
-        $desc.html "正在对 <b>#{current_screen}</b> 中的输入框： <b>#{that.current_field_label}</b> 提问"
-      else
-        $desc.html "正在对 <b>#{current_screen}</b> 提问"
+    jQuery(document).on 'show.bs.modal', (evt)=>
+      @show_question_modal()
+
+    @$elm.on 'click', '.field .label-question', ->
+      that.current_field_label = jQuery(this)
+        .closest('.field').find('label').html()
+      jQuery('.question-dialog').modal()
+
+  show_question_modal: ->
+    @pause_demo()
+    
+    $desc = jQuery('.question-dialog').find('.desc')
+    current_screen = jQuery('.demo-pager .page.active h2').html()
+    
+    if @current_field_label?
+      $desc.html "正在对 <b>#{current_screen}</b> 中的输入框： <b>#{@current_field_label}</b> 提问"
+    else
+      $desc.html "正在对 <b>#{current_screen}</b> 提问"
 
 
   to_page: (page_id, direction = 'toright')->

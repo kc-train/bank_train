@@ -163,7 +163,7 @@ class MainScreenField
       .appendTo $field
 
     ipt_width = ipt_space_count * 10
-    max_ipt_width = 300 - label_width - 20
+    max_ipt_width = 300 - label_width - 20 - 30
     # width = Math.min ipt_width, max_ipt_width
     width = max_ipt_width
 
@@ -176,4 +176,9 @@ class MainScreenField
     $input
       .css
         'width': width
+      .appendTo $field
+
+    $question = jQuery('<span>')
+      .addClass 'label-question'
+      .html "<span class='glyphicon glyphicon-question-sign'></span>"
       .appendTo $field
