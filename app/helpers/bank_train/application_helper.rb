@@ -11,23 +11,12 @@ module BankTrain
 
     def nav_link(path, str)
       klass = current_page?(path) ? 'active' : ''
-      
+
       capture_haml {
         haml_tag :li, class: klass do
           haml_tag :a, str, href: path
         end
       }
-    end
-
-    def operation_tree_node(operation)
-        haml_tag :li, class: :operation do
-          haml_tag :div, operation.name, class: :name
-          haml_tag :ul, class: :operations do
-            operation.children_operations.each do |child|
-              operation_tree_node child
-            end
-          end
-        end
     end
 
   end
