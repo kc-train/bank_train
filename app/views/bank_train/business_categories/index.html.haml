@@ -3,6 +3,4 @@
 
   .business-categories-tree
     .tree-name 业务种类树
-    %ul.categories
-      - @root_categories.each do |category|
-        = render_cell :'bank_train/business_categories', :tree_node, category, self
+    .tree
