@@ -6,3 +6,5 @@
     %ul.categories
       - @root_categories.each do |category|
         = render_cell :'bank_train/business_categories', :tree_node, category, self
+        / TODO: load slow
+    = link_to "创建", "/business_categories/new"

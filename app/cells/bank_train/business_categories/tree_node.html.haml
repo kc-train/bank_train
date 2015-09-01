@@ -8,6 +8,8 @@
     - if @category.business_operations.count > 0
       - operation = @category.business_operations[0]
       %a{href: @view.business_operations_path(filter: operation)}= operation.name
+  %a{href: "/business_categories/#{@category.id}/edit"}="修改"
+  %a{href: "/business_categories/#{@category.id}", :data => {:confirm => "是否确认删除",method: :delete}}= "删除"
   %ul.categories
     - @category.children_categories.each do |category|
       = render_cell :'bank_train/business_categories', :tree_node, category, @view
