@@ -7,6 +7,8 @@ module BankTrain
     field :name
     field :desc
 
+    validates :number, :name, :desc, presence: true
+
     default_scope ->{order(:id.asc)}
 
     has_and_belongs_to_many :user
