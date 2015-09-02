@@ -3,6 +3,7 @@
 
   %table.table.table-striped.table-bordered
     %caption 岗位清单
+    %a{:role=>"button",class: "btn btn-primary",:href=>"/posts/new"}创建岗位
     %thead
       %tr
         %th 岗位编号
@@ -28,10 +29,10 @@
             %span 类
           %td
             .btn-group.btn-group-sm
-              %a.btn.btn-default{href: 'javascript:;'}
+              %a.btn.btn-default{href: "/posts/#{post.id}/edit"}
                 %i.glyphicon.glyphicon-pencil
                 %span 修改
-              %a.btn.btn-default{href: 'javascript:;'} 
+              %a.btn.btn-default{href: "/posts/#{post.id}", :data => {confirm: "确认删除吗?", method: :delete}} 
                 %i.glyphicon.glyphicon-trash
                 %span 删除
 

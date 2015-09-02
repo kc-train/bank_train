@@ -11,5 +11,6 @@ module BankTrain
         include BankTrain::BusinessOperation::UserMethods
       end
     end
+    config.i18n.default_locale = "zh-CN"
   end
 end
