@@ -48,6 +48,8 @@ BusinessOperationLi = React.createClass
   render: ->
     <li className="operation">
       <div className="name">{this.props.operation.name}</div>
+      <a href="/business_operations/#{this.props.operation.id}"  data-confirm="确认删除吗？" data-method="delete">删除</a>
+      <a href="/business_operations/#{this.props.operation.id}/edit">修改</a>
       <BusinessOperationUl operations={this.props.operation.children}/>
     </li>
 
