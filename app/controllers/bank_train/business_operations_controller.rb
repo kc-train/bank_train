@@ -18,7 +18,7 @@ module BankTrain
       if @operation.save
         redirect_to  '/business_operations'
       else
-        render "/business_operations/new"
+        render "new"
       end
     end
 
@@ -31,7 +31,7 @@ module BankTrain
       if @operation.update_attributes(bussiness_operations_params)
         redirect_to "/business_operations"
       else
-        render "/business_operations/#{params[:id]}/edit"
+        render "edit"
       end
     end
 
