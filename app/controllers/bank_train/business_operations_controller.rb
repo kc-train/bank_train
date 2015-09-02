@@ -46,7 +46,7 @@ module BankTrain
     private
 
       def bussiness_operations_params
-        params.require(:business_operation).permit(:number, :name, :chapter_number, :parent_operation_id,:business_category_ids=>[])
+        params.require(:business_operation).permit(:number, :name, :chapter_number, :parent_id,:business_category_ids=>[])
       end
   end
 end

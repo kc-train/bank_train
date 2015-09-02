@@ -60,7 +60,7 @@ module BankTrain
 
     private
       def business_category_params
-        params.require(:business_category).permit(:name, :parent_category_id, :post_ids => [], :business_operation_ids => [])
+        params.require(:business_category).permit(:name, :parent_id, :post_ids => [], :business_operation_ids => [])
       end
   end
 end
