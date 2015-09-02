@@ -13,7 +13,7 @@ module BankTrain
       if @post.save
         redirect_to "/posts"
       else
-        redirect_to "/posts/new"
+        render "new"
       end
     end
 
@@ -22,7 +22,7 @@ module BankTrain
       if @post.update_attributes(post_params)
         redirect_to "/posts"
       else
-        redirect_to "/posts/#{params[:id]}/edit"
+        render "edit"
       end
     end
 

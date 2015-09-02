@@ -13,7 +13,7 @@ module BankTrain
       if @level.save
         redirect_to "/levels"
       else
-        redirect_to "/levels/new"
+        render "new"
       end
     end
 
@@ -26,7 +26,7 @@ module BankTrain
       if @level.update_attributes(level_params)
         redirect_to "/levels"
       else
-        redirect_to "/levels/#{params[:id]}/edit"
+        render "edit"
       end
     end
 
