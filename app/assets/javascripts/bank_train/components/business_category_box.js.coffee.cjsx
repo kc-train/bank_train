@@ -50,6 +50,8 @@ BusinessCategoryLi = React.createClass
         { if @props.category.posts_info != "" then <span className='posts'>{@props.category.posts_info}</span> }
         { <a href="/business_operations?filter=#{oper.id}">{oper.name}</a> for oper in @props.category.operations }
       </div>
+      <a href="/business_categories/#{@props.category.id}/edit">修改</a>
+      <a href="/business_categories/#{@props.category.id}" data-confirm="是否确认删除？" data-method="delete">删除</a>
       <BusinessCategoryUl categories={this.props.category.children}/>
     </li>
 
