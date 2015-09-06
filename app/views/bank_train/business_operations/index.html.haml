@@ -4,6 +4,7 @@
   .business-operations-tree
     .tree-name 业务操作目录树
     %ul.operations
-      - @root_operations.each do |operation|
-        - operation_tree_node operation
-        / TODO: load slow
+      - operation_tree_node_json
+      / - @root_operations.each do |operation|
+      / - operation_tree_node operation
+      / TODO: load slow
