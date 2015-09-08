@@ -6,7 +6,7 @@ module BankTrain
 
     field :name
 
-    validates :name, :presence => true
+    default_scope ->{order(:id.asc)}
 
     has_and_belongs_to_many :posts, class_name: 'BankTrain::Post'
     has_and_belongs_to_many :business_operations, class_name: 'BankTrain::BusinessOperation'

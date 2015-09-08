@@ -7,7 +7,8 @@ module BankTrain
     field :number
     field :name
     field :chapter_number
-    validates :number,:name,:chapter_number, presence: true
+
+    default_scope ->{order(:id.asc)}
 
     has_and_belongs_to_many :business_categories, class_name: 'BankTrain::BusinessCategory'
 

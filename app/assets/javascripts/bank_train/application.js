@@ -5,5 +5,7 @@
 //= require bootstrap-sprockets
 //= require react
 //= require react_ujs
-//= require bank_train/components
+
+// require lily/addable-items-inputer
+
 //= require_tree .
