@@ -11,7 +11,7 @@ module BankTrain
 
     def nav_link(path, str)
       klass = current_page?(path) ? 'active' : ''
-      
+
       capture_haml {
         haml_tag :li, class: klass do
           haml_tag :a, str, href: path

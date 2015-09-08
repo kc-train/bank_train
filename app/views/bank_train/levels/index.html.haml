@@ -1,8 +1,8 @@
 .page-levels-index
-  %h3 设置级别
-
+  %h3 设置级别 
   %table.table.table-striped.table-bordered
     %caption 级别清单
+    %a{:role=>"button",class: "btn btn-primary",:href=>"/levels/new"}创建级别
     %thead
       %tr
         %th 级别编号
@@ -18,9 +18,9 @@
           %td= level.name
           %td
             .btn-group.btn-group-sm
-              %a.btn.btn-default{href: 'javascript:;'}
+              %a.btn.btn-default{href: "/levels/#{level.id}/edit"}
                 %i.glyphicon.glyphicon-pencil
                 %span 修改
-              %a.btn.btn-default{href: 'javascript:;'} 
+              %a.btn.btn-default{href: "/levels/#{level.id}", data: {confirm: "确认删除吗?", method: :delete}} 
                 %i.glyphicon.glyphicon-trash
                 %span 删除

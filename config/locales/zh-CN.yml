@@ -1,0 +1,19 @@
+zh-CN:
+  mongoid:
+    errors:
+      models:
+        bank_train/post:
+          attributes:
+              number:
+                blank: 请填写岗位编号
+              name:
+                blank: 请填写岗位名
+              desc:
+                blank: 请填写岗位描述
+      models:
+        bank_train/level:
+          attributes:
+            number:
+              blank: 请填写级别编号
+            name:
+              blank: 请填写级别名称

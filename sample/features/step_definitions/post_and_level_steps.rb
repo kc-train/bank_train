@@ -8,6 +8,7 @@ Before {
   # 级别
   train_level = FactoryGirl.create :bank_train_level, :name => 'level-1'
   train_user.train_level = train_level
+  train_user.save
 
   # 业务类型
   business_categories = FactoryGirl.create_list :bank_train_business_category, 2
