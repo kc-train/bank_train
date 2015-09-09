@@ -1,0 +1,87 @@
+.demo2
+  .ywnodes
+    .line1
+    .line2
+    .line3
+
+    .node.n1
+      .name 填写递交并审核开户申请
+      .resources
+        .r{data: {toggle: :modal, target: '.sfz'}} 身份证
+        .r{data: {toggle: :modal, target: '.khsq'}} 开户申请
+
+    .node.n2
+      .name 输入开户信息
+      .resources
+        .r.screen{data: {toggle: :modal, target: '.screen1'}} 输入屏幕1
+        .r.screen{data: {toggle: :modal, target: '.screen2'}} 输入屏幕2
+
+    .node.n3
+      .name 递交清点现金，核对金额
+      .resources
+        .r{data: {toggle: :modal, target: '.dcj'}} 点钞机
+
+    .node.n4
+      .name 输入存款信息
+      .resources
+        .r.screen{data: {toggle: :modal, target: '.screen3'}} 输入屏幕3
+
+    .node.n5
+      .name 打印存折，发卡
+      .resources
+        .r{data: {toggle: :modal, target: '.cz'}} 存折
+        .r{data: {toggle: :modal, target: '.jjk'}} 借记卡
+
+    .node.n6
+      .name 现金分票入箱
+      .resources
+        .r{data: {toggle: :modal, target: '.wx'}} 尾箱
+
+  .modal.fade.sfz{role: :dialog}
+    .modal-dialog
+      .modal-content{style: 'text-align:center;'}
+        %img{src: 'http://i.teamkn.com/i/frIWKOXM.jpg'}
+        %img{src: 'http://i.teamkn.com/i/CjgyR8Fc.jpg'}
+
+  .modal.fade.dcj{role: :dialog}
+    .modal-dialog
+      .modal-content{style: 'text-align:center;'}
+        %img{src: 'http://i.teamkn.com/i/wb8UCrU4.png'}
+
+  .modal.fade.khsq{role: :dialog}
+    .modal-dialog
+      .modal-content{style: 'text-align:center;'}
+        %img{src: 'http://i.teamkn.com/i/D6pBqYI8.jpg'}
+
+  .modal.fade.jjk{role: :dialog}
+    .modal-dialog
+      .modal-content{style: 'text-align:center;'}
+        %img{src: 'http://i.teamkn.com/i/FnYydQqw.png'}
+
+  .modal.fade.cz{role: :dialog}
+    .modal-dialog
+      .modal-content{style: 'text-align:center;'}
+        %img{src: 'http://i.teamkn.com/i/oDtsuEA2.png'}
+
+  .modal.fade.wx{role: :dialog}
+    .modal-dialog
+      .modal-content{style: 'text-align:center;'}
+        %img{src: 'http://i.teamkn.com/i/jCKizO6M.png?imageMogr2/thumbnail/!300x300r/gravity/Center/crop/300x300'}
+
+  .modal.fade.screen.screen1{role: :dialog}
+    .modal-dialog.modal-lg
+      .modal-content{style: 'text-align:center;'}
+        %h2 输入屏幕 No.1
+        .dscreen.input1
+
+  .modal.fade.screen.screen2{role: :dialog}
+    .modal-dialog.modal-lg
+      .modal-content{style: 'text-align:center;'}
+        %h2 输入屏幕 No.2
+        .dscreen.input2
+
+  .modal.fade.screen.screen3{role: :dialog}
+    .modal-dialog.modal-lg
+      .modal-content{style: 'text-align:center;'}
+        %h2 输入屏幕 No.3
+        .dscreen.input4

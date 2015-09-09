@@ -1,8 +1,18 @@
 .container
   .row
-    .col-sm-3
-      .demo-inputer
+    .col-sm-12
+      .demo-switch
+        %h3 switch
+        %input{name: :publish, type: :checkbox, checked: true, role: 'lily-switch'}
 
     .col-sm-3
-      .demo-switcher
-  
+      .demo-inputer
+        %h3 addable-items-inputer
+        .lily-component{role: 'lily-addable-items-inputer', data: {count: 5, filldata: BankTrain::BusinessOperation.all[0..3].to_json}}
+          .input-group
+            %span.input-group-addon
+            %input.form-control.input-sm{type: :text, placeholder: '请输入……', value: '{name}'}
+            %span.input-group-btn
+              %a.btn.btn-default.btn-sm{role: 'remove-btn'}
+                %span.glyphicon.glyphicon-trash
+                %span 删除

@@ -5,6 +5,9 @@ module BankTrain
     def business_operation
     end
 
+    def business_operation_a
+    end
+
     def screens
     end
 

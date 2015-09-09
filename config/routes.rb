@@ -7,6 +7,8 @@ BankTrain::Engine.routes.draw do
   resources :business_operations
 
   get '/demo/business_operation', to: 'demo#business_operation'
+  get '/demo/business_operation_a', to: 'demo#business_operation_a'
+
   get '/demo/screens', to: 'demo#screens'
   get '/demo/screens_input', to: 'demo#screens_input'
   get '/demo/inputer_compoents', to: 'demo#inputer_compoents'
