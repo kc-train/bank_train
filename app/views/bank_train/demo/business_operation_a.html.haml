@@ -3,39 +3,53 @@
     .line1
     .line2
     .line3
+    .line4
+    .line5
 
-    .node.n1
+    %img.khtx{src: 'http://i.teamkn.com/i/eLJWgZIo.png'}
+    %img.gytx{src: 'http://i.teamkn.com/i/NL5aJ7eo.png'}
+
+    .node.n1.kh
       .name 填写递交并审核开户申请
       .resources
         .r{data: {toggle: :modal, target: '.sfz'}} 身份证
         .r{data: {toggle: :modal, target: '.khsq'}} 开户申请
 
-    .node.n2
+    .node.n2.gy
       .name 输入开户信息
       .resources
         .r.screen{data: {toggle: :modal, target: '.screen1'}} 输入屏幕1
         .r.screen{data: {toggle: :modal, target: '.screen2'}} 输入屏幕2
 
-    .node.n3
-      .name 递交清点现金，核对金额
+    .node.n3.kh
+      .name 递交现金
+      .resources
+        .r{data: {toggle: :modal, target: '.rmb'}} 人民币
+
+    .node.n31.gy
+      .name 清点现金，核对金额
       .resources
         .r{data: {toggle: :modal, target: '.dcj'}} 点钞机
 
-    .node.n4
+    .node.n4.gy
       .name 输入存款信息
       .resources
         .r.screen{data: {toggle: :modal, target: '.screen3'}} 输入屏幕3
 
-    .node.n5
+    .node.n5.gy
       .name 打印存折，发卡
       .resources
         .r{data: {toggle: :modal, target: '.cz'}} 存折
         .r{data: {toggle: :modal, target: '.jjk'}} 借记卡
 
-    .node.n6
+    .node.n6.gy
       .name 现金分票入箱
       .resources
         .r{data: {toggle: :modal, target: '.wx'}} 尾箱
+
+    .node.n7.kh
+      .name 客户领取存折和卡
+      .resources
 
   .modal.fade.sfz{role: :dialog}
     .modal-dialog
@@ -67,6 +81,11 @@
     .modal-dialog
       .modal-content{style: 'text-align:center;'}
         %img{src: 'http://i.teamkn.com/i/jCKizO6M.png?imageMogr2/thumbnail/!300x300r/gravity/Center/crop/300x300'}
+
+  .modal.fade.rmb{role: :dialog}
+    .modal-dialog
+      .modal-content{style: 'text-align:center;'}
+        %img{src: 'http://i.teamkn.com/i/BKYHGAz0.png'}
 
   .modal.fade.screen.screen1{role: :dialog}
     .modal-dialog.modal-lg
