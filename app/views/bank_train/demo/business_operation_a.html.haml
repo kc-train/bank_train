@@ -29,7 +29,9 @@
     .node.n31.gy
       .name 清点现金，核对金额
       .resources
-        .r{data: {toggle: :modal, target: '.dcj'}} 点钞机
+        .r{data: {toggle: :modal, target: '.dcj'}} 
+          %span 点钞机
+          %span.glyphicon.glyphicon-facetime-video
 
     .node.n4.gy
       .name 输入存款信息
@@ -54,53 +56,126 @@
   .modal.fade.sfz{role: :dialog}
     .modal-dialog
       .modal-content{style: 'text-align:center;'}
-        %img{src: 'http://i.teamkn.com/i/frIWKOXM.jpg'}
-        %img{src: 'http://i.teamkn.com/i/CjgyR8Fc.jpg'}
+        .modal-header
+          .model-title 身份证
+        .modal-body
+          %img{src: 'http://i.teamkn.com/i/frIWKOXM.jpg'}
+          %img{src: 'http://i.teamkn.com/i/CjgyR8Fc.jpg'}
 
-  .modal.fade.dcj{role: :dialog}
+  .modal.fade.dcj0{role: :dialog}
     .modal-dialog
       .modal-content{style: 'text-align:center;'}
-        %img{src: 'http://i.teamkn.com/i/wb8UCrU4.png'}
+        .modal-header
+          .model-title 点钞机
+        .modal-body
+          %img{src: 'http://i.teamkn.com/i/wb8UCrU4.png'}
+
+  .modal.fade.dcj{role: :dialog}
+    .modal-dialog.modal-lg
+      .modal-content{style: 'text-align:center;'}
+        .modal-header
+          .model-title 点钞机操作视频
+        .modal-body
+          %video{src: 'http://oss-cn-qingdao.aliyuncs.com/4ye-video/bank/%E6%96%B0%E5%9B%BD%E6%A0%87%E7%82%B9%E9%92%9E%E6%9C%BA_%E6%A0%87%E6%B8%85.mp4?Expires=1541852879&OSSAccessKeyId=Vtb1dpLPK0a77Vu8&Signature=%2B5Is6xtpBmrIB1xf8YZ7o5oKn1k%3D', controls: :controls}
 
   .modal.fade.khsq{role: :dialog}
     .modal-dialog
       .modal-content{style: 'text-align:center;'}
-        %img{src: 'http://i.teamkn.com/i/D6pBqYI8.jpg'}
+        .modal-header
+          .model-title 开户申请
+        .modal-body
+          %img{src: 'http://i.teamkn.com/i/Qo1koanv.png?imageMogr2/thumbnail/500x'}
 
   .modal.fade.jjk{role: :dialog}
     .modal-dialog
       .modal-content{style: 'text-align:center;'}
-        %img{src: 'http://i.teamkn.com/i/FnYydQqw.png'}
+        .modal-header
+          .model-title 借记卡
+        .modal-body
+          %img{src: 'http://i.teamkn.com/i/FnYydQqw.png'}
 
   .modal.fade.cz{role: :dialog}
     .modal-dialog
       .modal-content{style: 'text-align:center;'}
-        %img{src: 'http://i.teamkn.com/i/oDtsuEA2.png'}
+        .modal-header
+          .model-title 存折
+        .modal-body
+          %img{src: 'http://i.teamkn.com/i/oDtsuEA2.png'}
 
   .modal.fade.wx{role: :dialog}
     .modal-dialog
       .modal-content{style: 'text-align:center;'}
-        %img{src: 'http://i.teamkn.com/i/jCKizO6M.png?imageMogr2/thumbnail/!300x300r/gravity/Center/crop/300x300'}
+        .modal-header
+          .model-title 尾箱
+        .modal-body
+          %img{src: 'http://i.teamkn.com/i/jCKizO6M.png?imageMogr2/thumbnail/!300x300r/gravity/Center/crop/300x300'}
 
   .modal.fade.rmb{role: :dialog}
     .modal-dialog
       .modal-content{style: 'text-align:center;'}
-        %img{src: 'http://i.teamkn.com/i/BKYHGAz0.png'}
+        .modal-header
+          .model-title 人民币
+        .modal-body
+          %img{src: 'http://i.teamkn.com/i/BKYHGAz0.png?imageMogr2/thumbnail/500x'}
 
   .modal.fade.screen.screen1{role: :dialog}
     .modal-dialog.modal-lg
       .modal-content{style: 'text-align:center;'}
-        %h2 输入屏幕 No.1
+        %h4 输入屏幕 No.1
         .dscreen.input1
+        .show-demo{data: {screen: 'input1'}}
+          .btn.btn-success.btn-sm.play
+            %span.glyphicon.glyphicon-play
+            %span 观看演示
+          .btn.btn-default.btn-sm.pause
+            %span.glyphicon.glyphicon-pause
+            %span 暂停演示
+          .btn.btn-default.btn-sm{data: {toggle: :modal, target: '.question-dialog'}} 
+            %span.glyphicon.glyphicon-question-sign
+            %span 提问
 
   .modal.fade.screen.screen2{role: :dialog}
     .modal-dialog.modal-lg
       .modal-content{style: 'text-align:center;'}
-        %h2 输入屏幕 No.2
+        %h4 输入屏幕 No.2
         .dscreen.input2
+        .show-demo{data: {screen: 'input2'}}
+          .btn.btn-success.btn-sm.play
+            %span.glyphicon.glyphicon-play
+            %span 观看演示
+          .btn.btn-default.btn-sm.pause
+            %span.glyphicon.glyphicon-pause
+            %span 暂停演示
+          .btn.btn-default.btn-sm{data: {toggle: :modal, target: '.question-dialog'}} 
+            %span.glyphicon.glyphicon-question-sign
+            %span 提问
 
   .modal.fade.screen.screen3{role: :dialog}
     .modal-dialog.modal-lg
       .modal-content{style: 'text-align:center;'}
-        %h2 输入屏幕 No.3
+        %h4 输入屏幕 No.3
         .dscreen.input4
+        .show-demo{data: {screen: 'input4'}}
+          .btn.btn-success.btn-sm.play
+            %span.glyphicon.glyphicon-play
+            %span 观看演示
+          .btn.btn-default.btn-sm.pause
+            %span.glyphicon.glyphicon-pause
+            %span 暂停演示
+          .btn.btn-default.btn-sm{data: {toggle: :modal, target: '.question-dialog'}} 
+            %span.glyphicon.glyphicon-question-sign
+            %span 提问
+
+.question-dialog.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %a.close{data: {dismiss: :modal}}
+          %span &times;
+        %h4 操作提问
+      .modal-body
+        .desc
+        %textarea.form-control{placeholder: '请输入要提问的内容……', rows: 8}
+      .modal-footer
+        %a.btn.btn-success 确定
+        %a.btn.btn-default{data: {dismiss: :modal}} 关闭

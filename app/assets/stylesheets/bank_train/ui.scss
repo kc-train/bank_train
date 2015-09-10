@@ -415,8 +415,31 @@ body.demo {
     left:750px;
   }
 
+  .show-demo {
+    margin-top: 15px;
+    padding: 15px 0;
+    border-top:solid 1px #ccc;
+  }
+
   .demo-screen {
     margin:0 auto;
+    background-color: #555;
+
+    .demo-screen-header {
+      background-color: #444;
+    }
+    .demo-screen-footer {
+      background-color: #444;
+      .t {color:white;}
+      .key {background-color: rgba(white, 0.2);}
+    }
+    .demo-screen-main {
+      background-color: #444;
+      color: white;
+      input, select {
+        background-color: rgba(white, 0.2);
+      }
+    }
   }
 
   .ywnodes {
@@ -443,6 +466,9 @@ body.demo {
           border-radius: 2px;
           float: left;
           margin-right: 5px;
+          &.screen {
+            background-color: #2A70E8;
+          }
         }
       }
     }
