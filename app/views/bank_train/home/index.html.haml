@@ -1,7 +1,11 @@
-.bank-train
-  %a{:href => posts_path} 设置岗位
+.bank-train-home
+  .links
+    %a.link{href: demo_path}
+      %span 数据管理
+    %a.link{href: manage_path}
+      %span 场景演示
 
-.engine-generated
+.engine-generated.hide
   - if user_signed_in?
     .desc.current-user
       %span 当前用户：

@@ -6,6 +6,9 @@ BankTrain::Engine.routes.draw do
   resources :business_categories
   resources :business_operations
 
+  get '/demo', to: 'home#demo'
+  get '/manage', to: 'home#manage'
+
   get '/demo/business_operation', to: 'demo#business_operation'
   get '/demo/business_operation_a', to: 'demo#business_operation_a'
 
