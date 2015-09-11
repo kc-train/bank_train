@@ -1,9 +1,33 @@
 .bank-train-home
-  .links
-    %a.link{href: demo_path}
-      %span 数据管理
-    %a.link{href: manage_path}
-      %span 场景演示
+  .posts
+    - BankTrain::Post.each do |post|
+      :ruby
+        category_ids = post.business_categories.map {|c| c.id.to_s}
+
+      %a.post{href: 'javascript:;', data: {categories: category_ids}}
+        .name
+          %span.number= post.number
+          %span.pname= post.name
+        .desc= post.desc
+
+  .arrow
+    %i.glyphicon.glyphicon-arrow-right
+
+  .business-categories
+    :ruby
+      count = BankTrain::BusinessCategory.count - BankTrain::BusinessCategory.roots.count
+    .count 
+      %span 共 #{count} 项业务
+      %span.current-active
+    - BankTrain::BusinessCategory.roots.each do |c|
+      .category
+        .name
+          %span= c.name
+          %span (共 #{c.children.count} 项)
+        .children
+          - c.children.each do |child|
+            .child-category{data: {id: child.id.to_s}}
+              %a{href: business_operations_path}= child.name
 
 .engine-generated.hide
   - if user_signed_in?
