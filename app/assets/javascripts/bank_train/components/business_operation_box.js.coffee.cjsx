@@ -47,9 +47,15 @@ BusinessOperationBox = React.createClass
 BusinessOperationLi = React.createClass
   render: ->
     <li className="operation">
-      <div className="name">{this.props.operation.name}</div>
-      <a href="/business_operations/#{this.props.operation.id}"  data-confirm="确认删除吗？" data-method="delete">删除</a>
-      <a href="/business_operations/#{this.props.operation.id}/edit">修改</a>
+      <div className="name">
+        <span>{this.props.operation.name}</span>
+        {
+          if this.props.operation.number.length is 6
+            <span className='number'>#{this.props.operation.number}</span>
+        }
+      </div>
+      <a className='destroy' href="/business_operations/#{this.props.operation.id}"  data-confirm="确认删除吗？" data-method="delete">删除</a>
+      <a className='edit' href="/business_operations/#{this.props.operation.id}/edit">修改</a>
       <BusinessOperationUl operations={this.props.operation.children}/>
     </li>
 
@@ -69,3 +75,9 @@ jQuery(document).on 'page:change', ->
     filter = $dom.data("filter")
     dom = $dom.get(0)
     React.render <BusinessOperationBox url="/business_operations.json" filter={filter} />, dom
+
+jQuery(document).on 'page:change', ->
+  $dom = jQuery('.page-demo-filter .tree')
+  if $dom.length
+    filter = $dom.data('filter')
+    React.render <BusinessOperationBox url="/business_operations.json" filter={filter} />, $dom[0]

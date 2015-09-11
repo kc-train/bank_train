@@ -27,7 +27,14 @@
         .children
           - c.children.each do |child|
             .child-category{data: {id: child.id.to_s}}
-              %a{href: business_operations_path}= child.name
+              :ruby
+                if child.business_operations.present?
+                  filter = child.business_operations.first.id.to_s
+                else
+                  filter = ''
+                end
+
+              %a{href: demo_filter_path(filter: filter)}= child.name
 
 .engine-generated.hide
   - if user_signed_in?

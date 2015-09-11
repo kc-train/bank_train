@@ -19,6 +19,16 @@ module BankTrain
       }
     end
 
+    def nav_link_new_page(path, str)
+      klass = current_page?(path) ? 'active' : ''
+
+      capture_haml {
+        haml_tag :li, class: klass do
+          haml_tag :a, str, href: path, target: '_blank'
+        end
+      }
+    end
+
     def operation_tree_node(operation)
         haml_tag :li, class: :operation do
           haml_tag :div, operation.name, class: :name

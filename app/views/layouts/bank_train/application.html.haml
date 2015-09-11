@@ -35,13 +35,16 @@
                 %span.caret
               %ul.dropdown-menu
                 = nav_link root_path, '岗位与业务类型的对应'
+                = nav_link demo_filter_path, '业务类型与操作的对应'
+
             %li.dropdown
               %a.dropdown-toggle{href: 'javascript:;', data: {toggle: 'dropdown'}}
                 %i.glyphicon.glyphicon-grain
                 %span 操作过程演示
                 %span.caret
               %ul.dropdown-menu
-                = nav_link demo_business_operation_path, 'DEMO: 业务操作'
+                = nav_link demo_wizard_path, 'DEMO: 学习内容选择向导'
+                = nav_link_new_page demo_business_operation_a_path, 'DEMO: 业务操作示例'
 
     .page-main
       .container

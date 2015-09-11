@@ -2,6 +2,14 @@ module BankTrain
   class DemoController < BankTrain::ApplicationController
     layout 'bank_train/demo'
 
+    def filter
+      render layout: 'bank_train/application'
+    end
+
+    def wizard
+      render layout: 'bank_train/application'
+    end
+
     def business_operation
     end
 

@@ -1,0 +1,36 @@
+.demo-wizard.row
+  .col-sm-12
+    .steps
+      .step-label 操作选择向导
+      .ss
+        .step.active
+          .no 1
+          .name 选择岗位
+        .step
+          .no 2
+          .name 选择级别
+        .step
+          .no 3
+          .name 选择要学习的操作
+      .input-group
+        %input.search.form-control{placeholder: '输入业务编号或根据名称搜索'}
+        .input-group-btn
+          %a.btn.btn-default
+            %i.glyphicon.glyphicon-search
+
+    %hr
+
+  .col-sm-8
+    .block{data: {step: 1}}
+      .tip 请选择一个岗位：
+      .posts
+        - BankTrain::Post.each do |post|
+          .post
+            %a.pbox{href: 'javascript:;', data: {level: {}}}
+              .number= post.number
+              .name= post.name
+
+    %hr
+
+    .block{data: {step: 2}}
+      .tip 请选择一个级别：
