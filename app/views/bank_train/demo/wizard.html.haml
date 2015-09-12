@@ -3,34 +3,80 @@
     .steps
       .step-label 操作选择向导
       .ss
-        .step.active
-          .no 1
+        .step.s1.active
+          .no 
+            %span 1
+            %i.glyphicon.glyphicon-ok
           .name 选择岗位
-        .step
-          .no 2
+        .step.s2
+          .no 
+            %span 2
+            %i.glyphicon.glyphicon-ok
           .name 选择级别
-        .step
-          .no 3
+        .step.s3
+          .no 
+            %span 3
+            %i.glyphicon.glyphicon-ok
           .name 选择要学习的操作
-      .input-group
+      .input-group.search
         %input.search.form-control{placeholder: '输入业务编号或根据名称搜索'}
         .input-group-btn
           %a.btn.btn-default
             %i.glyphicon.glyphicon-search
 
-    %hr
 
   .col-sm-8
     .block{data: {step: 1}}
+      %hr
       .tip 请选择一个岗位：
       .posts
         - BankTrain::Post.each do |post|
           .post
-            %a.pbox{href: 'javascript:;', data: {level: {}}}
+            :ruby
+              level_ids = post.levels.map {|l| l.id.to_s}
+
+            %a.pbox{href: 'javascript:;', data: {levels: level_ids}}
               .number= post.number
               .name= post.name
 
-    %hr
 
-    .block{data: {step: 2}}
+    .block{style: 'display:none;', data: {step: 2}}
+      %hr
       .tip 请选择一个级别：
+      .levels
+        - BankTrain::Level.each do |level|
+          .level{data: {id: level.id.to_s}}
+            %a{href: 'javascript:;'}
+              .number
+                %span= level.number
+                %i.glyphicon.glyphicon-menu-right{style: 'font-size:12px;'}
+              .name= level.name  
+
+    .block{style: 'display:none;', data: {step: 3}}
+      %hr
+      .tip 请选择要学习的业务操作
+      .operations
+        %a.o{href: '/demo/business_operation_a', target: '_blank'} 
+          %span 活期存款开户 
+          %span.no #121100
+        %a.o{href: '/demo/business_operation_a', target: '_blank'} 
+          %span 活期存款存入 
+          %span.no #121200
+        %a.o{href: '/demo/business_operation_a', target: '_blank'} 
+          %span 活期存款支取 
+          %span.no #121300
+        %a.o{href: '/demo/business_operation_a', target: '_blank'} 
+          %span 定期存款开户 
+          %span.no #122100
+        %a.o{href: '/demo/business_operation_a', target: '_blank'} 
+          %span 定期存款续存 
+          %span.no #122200
+        %a.o{href: '/demo/business_operation_a', target: '_blank'} 
+          %span 定期存款支取 
+          %span.no #122300
+        %a.o{href: '/demo/business_operation_a', target: '_blank'} 
+          %span 定期存款取息 
+          %span.no #122400
+        %a.o{href: '/demo/business_operation_a', target: '_blank'} 
+          %span 账户密码修改 
+          %span.no #124020

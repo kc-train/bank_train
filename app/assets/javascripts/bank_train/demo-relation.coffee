@@ -24,4 +24,5 @@ class PostAndCategoryPage
 
 
 jQuery(document).on 'page:change', ->
-  new PostAndCategoryPage jQuery('.bank-train-home')
+  if jQuery('.bank-train-home').length
+    new PostAndCategoryPage jQuery('.bank-train-home')
