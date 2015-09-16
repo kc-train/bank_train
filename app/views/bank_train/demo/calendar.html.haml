@@ -1,0 +1,25 @@
+.page-calendar.container
+  .row
+    .col-sm-8.col-sm-push-2
+      %table.calendar-table.table.table-bordered
+        %thead
+          %tr
+            %th.calendar-head{colspan: 7}
+              %a.btn.btn-default.to-prev-month{href: 'javascript:;'} 上一月
+              %a.btn.btn-default.to-next-month{href: 'javascript:;'} 下一月
+              .current-month
+          %tr.weekdays
+            %th 星期一
+            %th 星期二
+            %th 星期三
+            %th 星期四
+            %th 星期五
+            %th 星期六
+            %th 星期日
+        %tbody
+          - idx = 0
+          - 6.times do
+            %tr
+              - 7.times do
+                %td{data: {idx: idx}}
+                - idx = idx + 1

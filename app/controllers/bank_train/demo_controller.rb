@@ -24,5 +24,8 @@ module BankTrain
 
     def inputer_compoents
     end
+
+    def calendar
+    end
   end
 end
