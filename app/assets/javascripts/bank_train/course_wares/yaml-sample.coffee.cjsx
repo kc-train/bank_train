@@ -87,6 +87,6 @@ class FlowRender
       @_r2 child
 
 
-jQuery(document).on 'page:change', ->
-  if jQuery('.yaml-sample').length
-    new FlowRender jQuery('.yaml-sample')
+# jQuery(document).on 'page:change', ->
+#   if jQuery('.yaml-sample').length
+#     new FlowRender jQuery('.yaml-sample')

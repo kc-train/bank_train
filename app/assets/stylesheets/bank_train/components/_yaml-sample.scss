@@ -1,0 +1,35 @@
+.yaml-sample {
+  .front-end-course-ware {
+    @include clearfix;
+    
+    .role-lane {
+      background-color: #FFF;
+      width: 300px;
+      min-height: 200px;
+      float: left;
+      box-shadow: 1px 1px 3px rgba(black, 0.3);
+      .lane-header {
+        text-align: center;
+        height:50px;
+        line-height:50px;
+        font-size: 20px;
+        font-weight: bold;
+        border-bottom: dashed 1px #ccc;
+      }
+
+      .action-node {
+        padding: 0 5px;
+        border-radius: 4px;
+        color: white;
+        line-height: 25px;
+        font-size: 12px;
+        height: 50px;
+        width: 120px;
+        background-color: #2DB7F5;
+        // position: absolute;
+        border: solid 2px rgba(black, 0.1);
+        font-weight: bold;
+      }
+    }
+  }
+}
