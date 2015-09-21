@@ -24,5 +24,15 @@ module BankTrain
 
     def inputer_compoents
     end
+
+    def yaml_sample
+      if params[:format] == 'json'
+        path = File.join __dir__, '../../..', 'data-templates/sample/122100-all.yaml'
+        str = File.read path
+        data = YAML.load str
+        render :json => data
+        return
+      end
+    end
   end
 end
