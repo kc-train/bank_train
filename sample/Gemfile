@@ -50,3 +50,6 @@ gem 'simple_form'
 gem 'cells', '~> 3.10.1'
 
 # gem 'lily-components', path: '/web/ben7th/lily-components'
+
+# 3.2.4 有BUG，这里强制指定一下版本
+gem 'bson', '3.2.1'
