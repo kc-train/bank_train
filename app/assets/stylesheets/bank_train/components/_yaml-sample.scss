@@ -1,35 +1,52 @@
 .yaml-sample {
   .front-end-course-ware {
     @include clearfix;
-    
+    background-color: #FFF;
+    position: relative;
+
     .role-lane {
-      background-color: #FFF;
-      width: 300px;
+      width: 180px;
       min-height: 200px;
       float: left;
-      box-shadow: 1px 1px 3px rgba(black, 0.3);
+      // box-shadow: 1px 1px 3px rgba(black, 0.3);
+      border-left: solid 1px #ddd;
+      border-right: solid 1px #ddd;
       .lane-header {
         text-align: center;
         height:50px;
         line-height:50px;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: bold;
         border-bottom: dashed 1px #ccc;
       }
 
-      .action-node {
-        padding: 0 5px;
-        border-radius: 4px;
-        color: white;
-        line-height: 25px;
-        font-size: 12px;
-        height: 50px;
-        width: 120px;
-        background-color: #2DB7F5;
-        // position: absolute;
-        border: solid 2px rgba(black, 0.1);
-        font-weight: bold;
+      .lane-nodes {
+        position: relative;
+
+        .action-node {
+          padding: 0 5px;
+          border-radius: 4px;
+          color: white;
+          line-height: 25px;
+          font-size: 12px;
+          height: 50px;
+          width: 120px;
+          background-color: #2DB7F5;
+          position: absolute;
+          border: solid 2px rgba(black, 0.1);
+          font-weight: bold;
+          cursor: pointer;
+
+          &:hover {
+            background-color: lighten(#2DB7F5, 10%);
+          }
+        }
       }
     }
+  }
+
+  canvas {
+    position: absolute;
+    top:50px;left:0;
   }
 }
