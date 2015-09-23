@@ -44,9 +44,12 @@ RoleLane = React.createClass
 
 FrontEndCourseWare = React.createClass
   render: ->
+    @dp = new DataParser @props.data
+    @roles = @dp.get_roles()
+
     <div className='front-end-course-ware'>
       {
-        for role, actions of @state.roles
+        for role, actions of @roles
           <RoleLane role={role} actions={actions} key={role} />
       }
     </div>
@@ -56,21 +59,16 @@ FrontEndCourseWare = React.createClass
     actions: []
 
   componentDidMount: ->
-    jQuery.getJSON @props.dataurl, (data)=>
-      @dp = new DataParser data
-      @state.roles = @dp.get_roles()
-      @setState @state
-
-  componentDidUpdate: ->
     # 画箭头
     role_pos = {}
 
-    for role, actions of @state.roles
+    for role, actions of @roles
       $lane = jQuery(".role-lane[data-role=#{role}] .lane-nodes")
       role_pos[role] = $lane.position()
 
     # 第二次遍历，画箭头
     @dp.draw_arrow(role_pos)
+
 
 
 class DataParser
@@ -96,16 +94,31 @@ class DataParser
 
   _r1_deep: (action, deep)->
     deep_role = @deeps[action.role()]
-    deep_role[deep] ||= []
-    deep_role[deep].push action
-    action.deep = deep
 
-    action.posx = deep_role[deep].length - 1
-    action.posy = deep
+    deep_role[deep] ||= []
+
+    # 当前 action 并未设置 deep
+    # 直接设置 deep
+    if not action.deep?
+      deep_role[deep].push action
+      action.deep = deep
+
+    # 当前 action 已经设置 deep
+    # 并且当前 deep < action.deep
+    # 从 deep_role 中移除，再根据当前 deep 设置
+    else if deep < action.deep
+      deep_role[action.deep] = deep_role[action.deep].filter (x)->
+        x.name() != action.name()
+
+      deep_role[deep].push action
+      action.deep = deep
+
+    action.posx = deep_role[action.deep].length - 1
+    action.posy = action.deep
 
     action.children = for name in action.children_names()
       child = (@actions.filter (x)-> x.name_eq name)[0]
-      @_r1_deep child, deep + 1
+      @_r1_deep child, action.deep + 1
       child
 
   draw_arrow: (role_pos)->
@@ -184,4 +197,5 @@ class Action
 jQuery(document).on 'page:change', ->
   if jQuery('.yaml-sample').length
     dataurl = jQuery('.yaml-sample').data('url')
-    React.render <FrontEndCourseWare dataurl={dataurl} />, jQuery('.yaml-sample')[0]
+    jQuery.getJSON dataurl, (data)->
+      React.render <FrontEndCourseWare data={data} />, jQuery('.yaml-sample')[0]
