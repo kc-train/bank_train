@@ -41,8 +41,8 @@ gem 'bson', '3.2.1'
 gem 'mongoid', '~> 4.0.2'
 gem 'haml'
 
-gem 'play_auth', :github => 'mindpin/play_auth',
-                 :tag => :latest
+# gem 'play_auth', :github => 'mindpin/play_auth',
+#                  :tag => :latest
 
 gem 'bank_train', path: '../'
 
