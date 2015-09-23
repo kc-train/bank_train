@@ -33,7 +33,6 @@ RoleLane = React.createClass
     </div>
 
   componentDidMount: ->
-    console.log @maxtop, @maxleft
     # 修正 role panel 的宽高
     height = @maxtop + 50 + 30
     width = @maxleft + 120 + 30
@@ -71,7 +70,7 @@ FrontEndCourseWare = React.createClass
       role_pos[role] = $lane.position()
 
     # 第二次遍历，画箭头
-    @dp.draw_arrow()
+    @dp.draw_arrow(role_pos)
 
 
 class DataParser
@@ -109,21 +108,38 @@ class DataParser
       @_r1_deep child, deep + 1
       child
 
-  draw_arrow: ->
+  draw_arrow: (role_pos)->
+    $cwel = jQuery('.front-end-course-ware')
+    height = $cwel.height() - 50
+    width = $cwel.width()
+
     $canvas = jQuery('<canvas>')
-      .attr 'width', 1000
-      .attr 'height', 1000
-      .prependTo jQuery('.front-end-course-ware')
+      .attr 'width', width
+      .attr 'height', height
+      .prependTo $cwel
 
     @curve_arrow = new CurveArrow $canvas[0]
 
-    @_r2 @start_action()
+    @_r2 @start_action(), role_pos
 
-  _r2: (action)->
+  _r2: (action, role_pos)->
     # 画箭头
     for child in action.children
-      @curve_arrow.draw action.pos().left + 60, action.pos().top + 25, child.pos().left + 60, child.pos().top + 25, '#666666'
-      @_r2 child
+      x0 = action.pos().left + 60
+      y0 = action.pos().top + 25
+      x1 = child.pos().left + 60
+      y1 = child.pos().top + 25
+
+      action_offset = role_pos[action.role()]
+      child_offset = role_pos[child.role()]
+
+      x0 += action_offset.left
+      # y0 += action_offset.top
+      x1 += child_offset.left
+      # y1 += child_offset.top
+
+      @curve_arrow.draw x0, y0, x1, y1, '#999999'
+      @_r2 child, role_pos
 
   get_actions: ->
     @actions
@@ -160,8 +176,8 @@ class Action
     @offy = 30
 
     {
-      left: @posx * 170 + @offx
-      top: @posy * 100 + @offy
+      left: @posx * 150 + @offx
+      top: @posy * 80 + @offy
     }
 
 
