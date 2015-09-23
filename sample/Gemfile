@@ -37,6 +37,7 @@ group :test do
   gem 'cucumber-rails', :require => false
 end
 
+gem 'bson', '3.2.1'
 gem 'mongoid', '~> 4.0.2'
 gem 'haml'
 
