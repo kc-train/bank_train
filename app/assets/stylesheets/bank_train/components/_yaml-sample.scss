@@ -44,6 +44,7 @@
           cursor: pointer;
           text-shadow: 0 0 2px black;
           // box-shadow: 1px 1px 8px rgba(black, 0.2);
+          transition: background-color ease .2s;
 
           &:hover {
             background-color: lighten(#2DB7F5, 10%);

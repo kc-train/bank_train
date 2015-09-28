@@ -68,6 +68,7 @@ FrontEndCourseWare = React.createClass
 
     # 第二次遍历，画箭头
     @dp.draw_arrow(role_pos)
+    # TODO 改为动态箭头
 
 
 
